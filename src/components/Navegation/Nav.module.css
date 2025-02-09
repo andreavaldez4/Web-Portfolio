@@ -1,0 +1,84 @@
+.nav {
+  position: fixed;
+  z-index: 1000;
+  background: transparent !important;
+  width: 100%;
+  top: 0;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.containerFluid {
+  width: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbarNav {
+  gap: 2rem;
+}
+
+.navLink {
+  color: white !important;
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.navLink:hover {
+  color: #fefae0 !important;
+  transform: scale(1.15);
+}
+
+/* Estilos para el botón del toggler */
+:global(.navbar-toggler) {
+  position: absolute;
+  right: 2rem;
+  padding: 0.5rem;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+:global(.navbar-toggler-icon) {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+:global(.navbar-toggler:focus),
+:global(.navbar-toggler:hover) {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Media queries para el menú responsive */
+@media (max-width: 991px) {
+  .containerFluid {
+    width: 100%;
+    padding: 0 2rem;
+    justify-content: flex-end;
+  }
+
+  :global(.navbar-collapse) {
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+
+  .navbarNav {
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+:global(.navbar-collapse) {
+  justify-content: center;
+  flex-grow: 0;
+}
