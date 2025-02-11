@@ -1,20 +1,22 @@
-import React from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import Nav from "./components/Navegation/Nav";
-import Background from "./components/Background/Background";
-import Margin from "./components/Margin/Margin";
-import Text from "./components/Text/Text";
+import Nav from "../../components/Navegation/Nav";
+import Background from "../../components/Background/Background";
+import Margin from "../../components/Margin/Margin";
+import styles from "./Home.module.css";
 
 function Home() {
   return (
-    <div>
+    <>
       <Nav />
       <Background />
       <Margin />
-      <Text />
-    </div>
+      <div className={styles.textContainer}>
+        <div className={styles.textContent}>
+          <p>Hello, I'm</p>
+          <p>Andrea</p>
+          <p>Valdez</p>
+        </div>
+      </div>
+    </>
   );
 }
 

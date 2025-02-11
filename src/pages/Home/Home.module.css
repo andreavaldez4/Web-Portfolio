@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap");
+
+.textContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.textContent {
+  margin-left: 10%;
+}
+
+.textContent p {
+  margin: 0;
+  font-family: "Karla", sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.textContent p:nth-child(2),
+.textContent p:nth-child(3) {
+  font-family: "Rubik", sans-serif;
+  font-size: 6rem;
+  font-weight: 900;
+}
