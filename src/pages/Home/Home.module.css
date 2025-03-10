@@ -1,33 +1,109 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap");
 
-.textContainer {
+.container {
   position: fixed;
+  width: 90vw;
+  height: 90vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  height: 90vh;
   z-index: 2;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
 .textContent {
-  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .textContent p {
-  margin: 0;
+  margin-bottom: 0;
   font-family: "Karla", sans-serif;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 2rem;
+  font-size: calc(1vw + 1rem);
   font-weight: 500;
 }
 
 .textContent p:nth-child(2),
 .textContent p:nth-child(3) {
   font-family: "Rubik", sans-serif;
-  font-size: 6rem;
+  font-size: calc(4vw + 2rem);
   font-weight: 900;
+}
+
+.textContent p:nth-child(2) {
+  margin-bottom: -50px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.8s ease;
+}
+
+.profileImage:hover {
+  transform: scale(1.1);
+}
+
+/* Media query para tablets y dispositivos más pequeños */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .textContent {
+    align-items: center;
+  }
+
+  .textContent p:nth-child(2),
+  .textContent p:nth-child(3) {
+    font-size: calc(6vw + 1rem);
+  }
+
+  .textContent p:nth-child(2) {
+    margin-bottom: -30px;
+  }
+
+  .profileImage {
+    max-width: 300px;
+  }
+}
+
+/* Media query para dispositivos muy pequeños */
+@media (max-width: 480px) {
+  .textContent p:nth-child(2),
+  .textContent p:nth-child(3) {
+    font-size: calc(8vw + 0.5rem);
+  }
+
+  .textContent p:nth-child(2) {
+    margin-bottom: -20px;
+  }
+
+  .profileImage {
+    max-width: 250px;
+  }
 }

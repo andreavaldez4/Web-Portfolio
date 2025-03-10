@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap");
+
+.projectsContainer {
+  position: fixed;
+  width: 90vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  padding: 2rem;
+  overflow-y: auto; /* Permite scroll si hay muchas cards */
+}
+
+.projectsTitle {
+  position: relative;
+  font-family: "Rubik", sans-serif;
+  font-size: calc(5vmin + 1rem);
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  z-index: 3;
+}
+
+.carouselContainer {
+  position: absolute;
+  width: 100%;
+}
+
+.cardsSection {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  margin-top: calc(1vmin + 2rem);
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap; /* Permite que las cards se envuelvan */
+}
+
+/* Estilos para el carrusel */
+:global(.carousel-control-prev),
+:global(.carousel-control-next) {
+  width: 5%;
+  opacity: 0.8;
+}
+
+:global(.carousel-indicators) {
+  bottom: -50px;
+}
+
+:global(.carousel-indicators button) {
+  background-color: white !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+:global(.carousel-inner) {
+  overflow: visible;
+}
+
+.navButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 3px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.navButton:first-child {
+  left: 0;
+}
+
+.navButton:last-child {
+  right: 0;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .navButton {
+    display: none;
+  }
+
+  .projectsContainer {
+    position: fixed;
+    overflow-y: scroll;
+    height: 80vh;
+    padding: 0rem;
+    width: 90vw;
+  }
+}

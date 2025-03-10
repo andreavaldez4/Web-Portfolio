@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap");
+
+.skillsContainer {
+  position: fixed;
+  width: 90vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  padding: 2rem;
+}
+
+.skillsTitle {
+  position: absolute;
+  top: calc(5vmin + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Rubik", sans-serif;
+  font-size: calc(5vmin + 1rem);
+  font-weight: 700;
+}

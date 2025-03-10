@@ -1,46 +1,11 @@
-import { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Nav.module.css";
 
 function Nav() {
-  const navbarRef = useRef(null);
-
-  useEffect(() => {
-    const navbar = navbarRef.current;
-    const toggler = navbar.querySelector(".navbar-toggler");
-    const navbarCollapse = navbar.querySelector(".navbar-collapse");
-    const navLinks = navbar.querySelectorAll(".nav-link");
-
-    const closeMenu = () => {
-      if (navbarCollapse.classList.contains("show")) {
-        toggler.click();
-      }
-    };
-
-    const handleOutsideClick = (event) => {
-      if (
-        navbarCollapse.classList.contains("show") &&
-        !navbar.contains(event.target)
-      ) {
-        closeMenu();
-      }
-    };
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-      navLinks.forEach((link) => {
-        link.removeEventListener("click", closeMenu);
-      });
-    };
-  }, []);
+  const location = useLocation();
 
   return (
-    <nav className={`navbar navbar-expand-lg ${styles.nav}`} ref={navbarRef}>
+    <nav className={`navbar navbar-expand-lg ${styles.nav}`}>
       <div className={styles.containerFluid}>
         <button
           className="navbar-toggler"
@@ -55,22 +20,38 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className={`navbar-nav ${styles.navbarNav}`}>
-            <a
-              className={`nav-link active ${styles.navLink}`}
-              aria-current="page"
-              href="#"
+            <Link
+              to="/"
+              className={`nav-link ${styles.navLink} ${
+                location.pathname === "/" ? "active" : ""
+              }`}
             >
               HOME
-            </a>
-            <a className={`nav-link ${styles.navLink}`} href="#">
+            </Link>
+            <Link
+              to="/projects"
+              className={`nav-link ${styles.navLink} ${
+                location.pathname === "/projects" ? "active" : ""
+              }`}
+            >
               PROJECTS
-            </a>
-            <a className={`nav-link ${styles.navLink}`} href="#">
+            </Link>
+            <Link
+              to="/skills"
+              className={`nav-link ${styles.navLink} ${
+                location.pathname === "/skills" ? "active" : ""
+              }`}
+            >
               SKILLS
-            </a>
-            <a className={`nav-link ${styles.navLink}`} href="#">
+            </Link>
+            <Link
+              to="/personal"
+              className={`nav-link ${styles.navLink} ${
+                location.pathname === "/personal" ? "active" : ""
+              }`}
+            >
               PERSONAL
-            </a>
+            </Link>
           </div>
         </div>
       </div>
