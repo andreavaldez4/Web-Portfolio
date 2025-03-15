@@ -41,9 +41,10 @@ function Projects() {
       image: coffee_shop,
     },
     {
-      title: "Proyecto 5",
-      description: "Descripción del proyecto 5",
-      image: gps_data,
+      title: "Web app for Edumakers ",
+      description:
+        "Take the Braille STL files and convert them into a web app, with a simple interface for users to interact with the Braille plates.",
+      image: edumakers_logo,
     },
     {
       title: "Proyecto 6",

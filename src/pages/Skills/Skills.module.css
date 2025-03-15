@@ -3,21 +3,119 @@
 .skillsContainer {
   position: fixed;
   width: 90vw;
-  height: 90vh;
+  height: 80vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   color: white;
   padding: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 2%,
+    black 98%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 2%,
+    black 98%,
+    transparent 100%
+  );
+}
+
+.skillsContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.skillsContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.skillsContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
 }
 
 .skillsTitle {
-  position: absolute;
-  top: calc(5vmin + 1rem);
-  left: 50%;
-  transform: translateX(-50%);
   font-family: "Rubik", sans-serif;
   font-size: calc(5vmin + 1rem);
   font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skillsContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.skillSection {
+  margin-bottom: 4rem;
+}
+
+.skillSection h2 {
+  font-family: "Rubik", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  width: 150px;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.iconContainer {
+  font-size: 3rem;
+  color: white;
+}
+
+.skillItem span {
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .skillItem {
+    width: 120px;
+    padding: 1rem;
+  }
+
+  .iconContainer {
+    font-size: 2.5rem;
+  }
 }

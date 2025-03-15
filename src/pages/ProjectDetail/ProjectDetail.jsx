@@ -9,6 +9,9 @@ import edumakers_logo from "../../images/edumakers_logo.jpg";
 import gps_data from "../../images/mapa.png";
 import spotify_data from "../../images/spotify.jpg";
 import coffee_shop from "../../images/coffee_shop.jpg";
+import the_team from "../../images/the_team.jpeg";
+import names_team from "../../images/names_team.jpeg";
+import impresiones from "../../images/impresiones.jpeg";
 
 const projectsData = {
   edumakers: {
@@ -19,7 +22,21 @@ const projectsData = {
     fullDescription:
       "Developed a Python-based software that converts text into Braille-ready STL files for 3D printing, enhancing accessibility in education. The project involved implementing data processing algorithms, automating STL generation using NumPy-STL and Pandas, and designing a modular system for custom Braille plates. Additionally, I contributed to database structuring for 3D representations of Braille characters, integrated Blender scripting for text extrusion, and provided comprehensive user documentation. Inspired by collaboration with Wake Forest University, this initiative aligns with assistive technology advancements to improve educational inclusivity.",
     technologies: ["Python", "STL", "3D Printing"],
-    github: "https://github.com/yourusername/edumakers",
+    github: "https://github.com/EduMakers-Tec/Braille_STL",
+    projectImages: [
+      {
+        image: the_team,
+        description: "Prototipo inicial de las placas Braille impresas en 3D",
+      },
+      {
+        image: names_team,
+        description: "Proceso de impresión 3D de las placas Braille",
+      },
+      {
+        image: impresiones,
+        description: "Estudiantes interactuando con las placas Braille",
+      },
+    ],
   },
   "gps-data": {
     title: "GPS Data Mobility",
@@ -93,6 +110,19 @@ function ProjectDetail() {
             </a>
           </div>
         </div>
+        {project.projectImages && (
+          <div className={styles.imageGallery}>
+            <h2>Project Gallery</h2>
+            <div className={styles.imagesGrid}>
+              {project.projectImages.map((img, index) => (
+                <div key={index} className={styles.imageContainer}>
+                  <img src={img.image} alt={img.description} />
+                  <p className={styles.imageDescription}>{img.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
