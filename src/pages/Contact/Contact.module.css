@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap");
+
+.contactContainer {
+  position: fixed;
+  width: 90vw;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Rubik", sans-serif;
+  font-size: calc(4vmin + 1rem);
+  font-weight: 700;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.contactCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+}
+
+.contactCard:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover .icon {
+  transform: scale(1.2);
+}
+
+.contactCard h3 {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.contactCard p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contactCard {
+    padding: 1.5rem;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .contactCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .contactCard p {
+    font-size: 0.9rem;
+  }
+}

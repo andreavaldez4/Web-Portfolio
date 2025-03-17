@@ -6,6 +6,7 @@ import Projects from "./pages/Projects/Projects";
 import Skills from "./pages/Skills/Skills";
 import Personal from "./pages/Personal/Personal";
 import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/project/:id" element={<ProjectDetail />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/personal" element={<Personal />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

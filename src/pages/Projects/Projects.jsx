@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import Nav from "../../components/Navegation/Nav";
 import Background from "../../components/Background/Background";
-import Margin from "../../components/Margin/Margin";
 import styles from "./Projects.module.css";
 import ProjectCard from "../../components/Cards/Cards";
 
 import edumakers_logo from "../../images/edumakers_logo.jpg";
-import gps_data from "../../images/mapa.png";
+import maps from "../../images/maps.jpg";
 import spotify_data from "../../images/spotify.jpg";
-import coffee_shop from "../../images/coffee_shop.jpg";
+import coffeeinv from "../../images/coffeeinv.jpg";
+import neuma from "../../images/neuma.jpeg";
 
 function Projects() {
   const projects = [
@@ -24,7 +24,7 @@ function Projects() {
       title: "GPS Data Mobility",
       description:
         "Analyzed GPS data using Python to identify mobility patterns and estimate energy consumption and emissions.",
-      image: gps_data,
+      image: maps,
     },
     {
       id: "spotify-analysis",
@@ -38,29 +38,33 @@ function Projects() {
       title: "Coffee Shop inventory in C++",
       description:
         "Implemented an object-oriented C++ program for a coffee shop inventory system, managing product records efficiently through class-based structures.",
-      image: coffee_shop,
+      image: coffeeinv,
     },
     {
+      id: "edumakers-webpage",
       title: "Web app for Edumakers ",
       description:
-        "Take the Braille STL files and convert them into a web app, with a simple interface for users to interact with the Braille plates.",
+        "Take the Braille STL python project and convert them into a web app, with a simple interface for users to interact with the Braille plates.",
       image: edumakers_logo,
     },
     {
-      title: "Proyecto 6",
-      description: "Descripción del proyecto 6",
-      image: spotify_data,
+      id: "neuma-merch",
+      title: "Neuma Merch Webpage",
+      description:
+        "Developed an e-commerce website for Neuma, a Catholic band, integrating a secure payment system and optimizing user experience for seamless online merchandise sales.",
+      image: neuma,
     },
   ];
 
   const [currentPage, setCurrentPage] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(3);
-  const totalPages = Math.ceil(projects.length / cardsPerPage);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Ajustar cards por página según el ancho de la ventana
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (mobile) {
         setCardsPerPage(1);
       } else if (window.innerWidth < 1200) {
         setCardsPerPage(2);
@@ -69,13 +73,15 @@ function Projects() {
       }
     };
 
-    handleResize(); // Ejecutar al inicio
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const totalPages = Math.ceil(projects.length / cardsPerPage);
 
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
@@ -85,24 +91,27 @@ function Projects() {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
-  const currentProjects = projects.slice(
-    currentPage * cardsPerPage,
-    (currentPage + 1) * cardsPerPage
-  );
+  const displayedProjects = isMobile
+    ? projects
+    : projects.slice(
+        currentPage * cardsPerPage,
+        (currentPage + 1) * cardsPerPage
+      );
 
   return (
     <>
       <Nav />
       <Background />
-      <Margin />
       <div className={styles.projectsContainer}>
         <h1 className={styles.projectsTitle}>Projects</h1>
         <div className={styles.cardsSection}>
-          <button className={styles.navButton} onClick={prevPage}>
-            &lt;
-          </button>
+          {!isMobile && (
+            <button className={styles.navButton} onClick={prevPage}>
+              &lt;
+            </button>
+          )}
           <div className={styles.cardsContainer}>
-            {currentProjects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <ProjectCard
                 key={index}
                 id={project.id}
@@ -112,9 +121,11 @@ function Projects() {
               />
             ))}
           </div>
-          <button className={styles.navButton} onClick={nextPage}>
-            &gt;
-          </button>
+          {!isMobile && (
+            <button className={styles.navButton} onClick={nextPage}>
+              &gt;
+            </button>
+          )}
         </div>
       </div>
     </>

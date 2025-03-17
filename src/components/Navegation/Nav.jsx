@@ -52,6 +52,14 @@ function Nav() {
             >
               PERSONAL
             </Link>
+            <Link
+              to="/contact"
+              className={`nav-link ${styles.navLink} ${
+                location.pathname === "/contact" ? "active" : ""
+              }`}
+            >
+              CONTACT
+            </Link>
           </div>
         </div>
       </div>

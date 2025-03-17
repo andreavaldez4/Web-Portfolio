@@ -3,25 +3,26 @@
 .projectsContainer {
   position: fixed;
   width: 90vw;
-  height: 90vh;
+  height: 80vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   color: white;
-  padding: 2rem;
-  overflow-y: auto; /* Permite scroll si hay muchas cards */
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .projectsTitle {
-  position: relative;
   font-family: "Rubik", sans-serif;
-  font-size: calc(5vmin + 1rem);
+  font-size: calc(4vmin + 1rem);
   font-weight: 700;
-  width: 100%;
   text-align: center;
   margin-top: 2rem;
-  z-index: 3;
+  margin-bottom: 3rem;
 }
 
 .carouselContainer {
@@ -36,16 +37,15 @@
   align-items: center;
   justify-content: center;
   padding: 0 1rem;
-  margin-top: calc(1vmin + 2rem);
 }
 
 .cardsContainer {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 2rem;
   width: 100%;
-  flex-wrap: wrap; /* Permite que las cards se envuelvan */
+  flex-wrap: wrap;
 }
 
 /* Estilos para el carrusel */
@@ -105,21 +105,45 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+  .projectsContainer {
+    height: calc(100vh - 80px);
+    padding: 0.5rem;
+    position: absolute;
+    top: 60px;
+    transform: translateX(-50%);
+    overflow-y: auto;
+  }
+
+  .projectsTitle {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: calc(3vmin + 1rem);
+  }
+
+  .cardsSection {
+    padding: 0;
+  }
+
   .cardsContainer {
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
+    padding-bottom: 2rem;
   }
+
   .navButton {
     display: none;
   }
+}
 
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 380px) {
   .projectsContainer {
-    position: fixed;
-    overflow-y: scroll;
-    height: 80vh;
-    padding: 0rem;
-    width: 90vw;
+    width: 95vw;
+    padding: 0.25rem;
+  }
+
+  .cardsContainer {
+    gap: 1rem;
   }
 }

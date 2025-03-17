@@ -6,12 +6,14 @@ import styles from "./ProjectDetail.module.css";
 
 // Importar las imágenes
 import edumakers_logo from "../../images/edumakers_logo.jpg";
-import gps_data from "../../images/mapa.png";
+import maps from "../../images/maps.jpg";
 import spotify_data from "../../images/spotify.jpg";
 import coffee_shop from "../../images/coffee_shop.jpg";
 import the_team from "../../images/the_team.jpeg";
 import names_team from "../../images/names_team.jpeg";
 import impresiones from "../../images/impresiones.jpeg";
+import edwebp from "../../images/edwebp.jpeg";
+import neuma from "../../images/neuma.jpeg";
 
 const projectsData = {
   edumakers: {
@@ -26,15 +28,15 @@ const projectsData = {
     projectImages: [
       {
         image: the_team,
-        description: "Prototipo inicial de las placas Braille impresas en 3D",
+        description: "Braille STL project team.",
       },
       {
         image: names_team,
-        description: "Proceso de impresión 3D de las placas Braille",
+        description: "Braille Plates with our names.",
       },
       {
         image: impresiones,
-        description: "Estudiantes interactuando con las placas Braille",
+        description: "3D printed Braille Plates for biology study materials.",
       },
     ],
   },
@@ -42,29 +44,47 @@ const projectsData = {
     title: "GPS Data Mobility",
     description:
       "Analyzed GPS data using Python to identify mobility patterns and estimate energy consumption and emissions.",
-    image: gps_data,
+    image: maps,
     fullDescription:
-      "Un análisis profundo de patrones de movilidad usando datos GPS...",
+      "Developed software for MAITEC, a decision-support platform leveraging digital twin technology to assess urban mobility strategies' impact on energy consumption, air quality, and public health in Monterrey. Worked with GIS-based systems integrating demographic, infrastructure, and environmental data. Contributed to processing GPS-based big data for urban travel analysis, enabling high-resolution traffic modeling and scenario simulation to optimize mobility, reduce emissions, and enhance urban sustainability.",
     technologies: ["Python", "Pandas", "Data Analysis"],
-    github: "https://github.com/yourusername/gps-data",
   },
   "spotify-analysis": {
     title: "Spotify Data Analysis",
     description:
       "Analyzed Spotify datasets using Python, using Pandas and Matplotlib for data processing and visualization.",
     image: spotify_data,
-    fullDescription: "Análisis completo de datos de Spotify...",
+    fullDescription:
+      " Analyzed Spotify datasets using Python, using Pandas and Matplotlib for data processing and visualization. Developed functions to generate frequency and popularity graphs, extract key statistics, and filter tracks by popularity, duration, tempo, and loudness. Implemented an interactive program for dynamic data exploration, enhancing analytical insights.",
     technologies: ["Python", "Pandas", "Matplotlib"],
-    github: "https://github.com/yourusername/spotify-analysis",
   },
   "coffee-shop": {
     title: "Coffee Shop Inventory",
     description:
       "Implemented an object-oriented C++ program for a coffee shop inventory system.",
     image: coffee_shop,
-    fullDescription: "Sistema de inventario desarrollado en C++...",
+    fullDescription:
+      "Developed an object-oriented C++ program for a coffee shop inventory system, optimizing product record management through class-based structures. Designed and documented a UML class diagram to model system architecture, ensuring scalability and maintainability. Integrated user input handling and validation mechanisms to enhance system robustness and prevent errors.",
     technologies: ["C++", "OOP", "Data Structures"],
-    github: "https://github.com/yourusername/coffee-shop",
+  },
+
+  "edumakers-webpage": {
+    title: "Edumakers Webpage",
+    description:
+      "Take the Braille STL python project and convert them into a web app, with a simple interface for users to interact with the Braille plates.",
+    image: edwebp,
+    fullDescription:
+      "Converted Braille STL files into a web application with a user-friendly interface, allowing users to interact with and visualize Braille plates. Implemented intuitive navigation and optimized 3D rendering for accessibility and ease of use.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+  "neuma-merch": {
+    title: "Neuma Merch Webpage",
+    description:
+      "Developed an e-commerce website for Neuma, a Catholic band, integrating a secure payment system and optimizing user experience for seamless online merchandise sales.",
+    image: neuma,
+    fullDescription:
+      "Developed and deployed a fully functional e-commerce webpage for Neuma, a Catholic band, enabling online merchandise sales. Implemented a secure and user-friendly payment system, ensuring seamless transactions. Designed the site with an intuitive interface and responsive layout to enhance user experience, while optimizing performance and scalability to support future growth.",
+    technologies: ["HTML", "CSS", "JavaScript"],
   },
 };
 
@@ -100,14 +120,6 @@ function ProjectDetail() {
                 </span>
               ))}
             </div>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.githubLink}
-            >
-              See on GitHub
-            </a>
           </div>
         </div>
         {project.projectImages && (

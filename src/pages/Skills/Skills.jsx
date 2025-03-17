@@ -1,6 +1,5 @@
 import Nav from "../../components/Navegation/Nav";
 import Background from "../../components/Background/Background";
-import Margin from "../../components/Margin/Margin";
 import styles from "./Skills.module.css";
 import {
   SiPython,
@@ -47,7 +46,6 @@ function Skills() {
     <>
       <Nav />
       <Background />
-      <Margin />
       <div className={styles.skillsContainer}>
         <h1 className={styles.skillsTitle}>Skills</h1>
 
