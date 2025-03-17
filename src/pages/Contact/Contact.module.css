@@ -80,9 +80,26 @@
 }
 
 @media (max-width: 768px) {
+  .contactContainer {
+    position: absolute;
+    top: 60px;
+    height: calc(100vh - 60px);
+    transform: translateX(-50%);
+    padding: 1rem;
+    overflow-y: auto;
+    justify-content: flex-start;
+  }
+
+  .title {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: calc(3vmin + 1rem);
+  }
+
   .cardsContainer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 0 1rem 2rem 1rem;
   }
 
   .contactCard {
@@ -99,5 +116,16 @@
 
   .contactCard p {
     font-size: 0.9rem;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 380px) {
+  .contactContainer {
+    width: 95vw;
+  }
+
+  .cardsContainer {
+    padding: 0 0.5rem 2rem 0.5rem;
   }
 }

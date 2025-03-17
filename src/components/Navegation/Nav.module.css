@@ -94,13 +94,13 @@
 @media (max-width: 992px) {
   :global(.navbar-collapse) {
     position: absolute;
-    top: calc(100% + 10px);
+    top: 100%;
     right: 5%;
-    width: 10rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease-in-out;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
   }
 
   :global(.navbar-collapse:not(.show)) {
@@ -110,16 +110,23 @@
   :global(.navbar-collapse.show) {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
-    background: rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    border-radius: 8px;
-    min-width: 200px;
+    transform: none;
   }
 
   .navbarNav {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+  }
+
+  :global(.navbar-toggler) {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    border-radius: 8px;
   }
 }
 
