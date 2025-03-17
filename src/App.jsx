@@ -7,6 +7,7 @@ import Skills from "./pages/Skills/Skills";
 import Personal from "./pages/Personal/Personal";
 import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 import Contact from "./pages/Contact/Contact";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
