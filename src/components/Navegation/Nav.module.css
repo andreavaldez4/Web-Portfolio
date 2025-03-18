@@ -97,7 +97,7 @@
     top: 100%;
     right: 5%;
     width: 200px;
-    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.9);
     padding: 1rem;
     border-radius: 8px;
     z-index: 1000;
@@ -119,13 +119,37 @@
     gap: 1rem;
   }
 
+  .navLink {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    margin: 0.2rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .navLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .navLink.active {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
   :global(.navbar-toggler) {
     position: fixed;
     top: 1rem;
     right: 1rem;
     z-index: 1001;
     padding: 0.5rem;
-    border-radius: 8px;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  :global(.navbar-toggler:focus) {
+    box-shadow: none !important;
   }
 }
 
@@ -135,7 +159,7 @@
   padding: 0.5rem;
   position: absolute;
   right: 5%;
-  z-index: 1001; /* Asegura que esté sobre el menú */
+  z-index: 1001;
   transition: all 0.3s ease;
 }
 
