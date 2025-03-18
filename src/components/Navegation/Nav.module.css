@@ -97,7 +97,7 @@
     top: 100%;
     right: 5%;
     width: 200px;
-    background: rgba(0, 0, 0, 0.9);
+    margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 8px;
     z-index: 1000;
@@ -124,7 +124,6 @@
     top: 1rem;
     right: 1rem;
     z-index: 1001;
-    background: rgba(0, 0, 0, 0.5);
     padding: 0.5rem;
     border-radius: 8px;
   }
